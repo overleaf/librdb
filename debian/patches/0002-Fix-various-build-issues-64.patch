@@ -1,0 +1,117 @@
+From: Moti Cohen <moticless@gmail.com>
+Date: Tue, 28 Jan 2025 15:03:26 +0200
+Subject: Fix various build issues (#64)
+
+This PR addresses build issues on different platforms:
+
+* librdb uses stricter -Werror compiler flag to build /root/librdb/deps/redis unlike Redis repo.
+* Mitigate other false compiler warning in librdb.
+---
+ README.md           | 6 ++++++
+ deps/redis/Makefile | 2 +-
+ src/cli/rdb-cli.c   | 2 +-
+ src/lib/parser.c    | 2 +-
+ test/test_common.c  | 6 +++---
+ test/test_common.h  | 2 +-
+ 6 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/README.md b/README.md
+index 1704e4d..fb92d6f 100644
+--- a/README.md
++++ b/README.md
+@@ -45,6 +45,12 @@ To run CLI extension of this library and let it parse RDB file to json:
+       ]}
+     }]
+ 
++To generate formatted print:
++
++    rdb-cli dump.rdb print --key "db%d,%k,%v"
++    db0,key1,value1
++    db0,key2,value2
++    ...
+ 
+ To generate RESP commands:
+ 
+diff --git a/deps/redis/Makefile b/deps/redis/Makefile
+index a7b0f13..5dabf04 100644
+--- a/deps/redis/Makefile
++++ b/deps/redis/Makefile
+@@ -4,7 +4,7 @@ OBJECTS = $(patsubst %,%.o,$(SOURCES))
+ OPTIMIZATION?=-O3
+ 
+ STD            = -std=c99
+-WARNS          = -Wall -Wextra -pedantic -Werror
++WARNS          = -Wall -Wextra -pedantic
+ CFLAGS         = -fPIC $(OPTIMIZATION) $(STD) $(WARNS) -fvisibility=hidden
+ DEBUG          = -g3 -DDEBUG=1
+ LIBS           =
+diff --git a/src/cli/rdb-cli.c b/src/cli/rdb-cli.c
+index 595b0fc..7d5fd73 100644
+--- a/src/cli/rdb-cli.c
++++ b/src/cli/rdb-cli.c
+@@ -427,7 +427,7 @@ int readCommonOptions(RdbParser *p, int argc, char* argv[], Options *options, in
+     return at;
+ }
+ 
+-void closeLogFileOnExit() {
++void closeLogFileOnExit(void) {
+     if (logfile != NULL)
+         fclose(logfile);
+ }
+diff --git a/src/lib/parser.c b/src/lib/parser.c
+index 23e9ea7..9bf6b87 100644
+--- a/src/lib/parser.c
++++ b/src/lib/parser.c
+@@ -929,7 +929,7 @@ RdbStatus allocFromCache(RdbParser *p,
+ 
+ static inline RdbStatus unpackList(RdbParser *p, unsigned char *lp) {
+     unsigned char *eptr, *item;
+-    unsigned int itemLen;
++    unsigned int itemLen = 0;
+     long long itemVal;
+ 
+     eptr = lpFirst( lp);
+diff --git a/test/test_common.c b/test/test_common.c
+index de217db..21443f5 100644
+--- a/test/test_common.c
++++ b/test/test_common.c
+@@ -475,7 +475,7 @@ int getRedisPort(void) {
+     return redisPort[currRedisInst];
+ }
+ 
+-void setValgrind() {
++void setValgrind(void) {
+     useValgrind = 1;
+ }
+ 
+@@ -503,7 +503,7 @@ void checkValgrindLog(const char *filename) {
+ /* Redis OSS does not support restoring module auxiliary data. This feature
+  * is currently available only in Redis Enterprise. There are plans to bring
+  * this functionality to Redis OSS in the near future. */
+-int isSupportRestoreModuleAux() {
++int isSupportRestoreModuleAux(void) {
+     static int supported = -1;   /* -1=UNINIT, 0=NO, 1=YES */
+     if (supported == -1) {
+         char *res = sendRedisCmd("RESTOREMODAUX", REDIS_REPLY_ERROR, NULL);
+@@ -585,7 +585,7 @@ static unsigned char xorstr(const char *str) {
+ #define BUFFER_SIZE 1024
+ static int pipe_in[2], pipe_out[2];
+ static pid_t pid = -1;
+-void start_json_sign_service() {
++void start_json_sign_service(void) {
+     if (pipe(pipe_in) == -1 || pipe(pipe_out) == -1) {
+         perror("pipe failed");
+         exit(1);
+diff --git a/test/test_common.h b/test/test_common.h
+index f22b0b6..289a0a5 100644
+--- a/test/test_common.h
++++ b/test/test_common.h
+@@ -44,7 +44,7 @@ void assert_json_equal(const char *f1, const char *f2, int ignoreListOrder);
+ /* Test against Redis Server */
+ void setRedisInstallFolder(const char *path);
+ int getRedisPort(void);
+-void setValgrind();
++void setValgrind(void);
+ void setupRedisServer(const char *extraArgs);
+ const char *getTargetRedisVersion(int *major, int *minor); /* call only after setupRedisServer() */
+ void teardownRedisServer(void);
