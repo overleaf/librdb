@@ -5,6 +5,8 @@
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1
 
+export PREFIX = /usr
+
 %:
 	dh $@
 
