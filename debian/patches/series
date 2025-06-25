@@ -1,2 +1,2 @@
-0001-Remove-deps-from-Makefile.patch
+0001-Remove-hiredis-deps-from-Makefile.patch
 0002-Fix-various-build-issues-64.patch

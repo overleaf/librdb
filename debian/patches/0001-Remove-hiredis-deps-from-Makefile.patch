@@ -1,0 +1,49 @@
+From: Christopher Hoskin <mans0954@users.noreply.github.com>
+Date: Wed, 25 Jun 2025 07:27:48 +0100
+Subject: Remove hiredis deps from Makefile
+
+---
+ Makefile      | 5 +----
+ deps/Makefile | 4 +---
+ 2 files changed, 2 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 8585174..601378c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -22,7 +22,7 @@ export LIBRDB_VERSION
+ 
+ # ------------------------- ALL --------------------------------------
+ 
+-all: ./deps/hiredis/hiredis.h
++all:
+ 	$(MAKE) -C deps  all
+ 	$(MAKE) -C src/lib  all
+ 	$(MAKE) -C src/ext  all
+@@ -44,9 +44,6 @@ distclean: clean
+ example: all
+ 	cd examples && export LD_LIBRARY_PATH=../lib && ./example1
+ 
+-./deps/hiredis/hiredis.h:
+-	git submodule update --init deps/hiredis
+-
+ # ------------------------- DEBUG -------------------------------------
+ 
+ debug:
+diff --git a/deps/Makefile b/deps/Makefile
+index 566d522..5f94a0d 100644
+--- a/deps/Makefile
++++ b/deps/Makefile
+@@ -1,10 +1,8 @@
+ all:
+ 	$(MAKE) -C redis all
+-	$(MAKE) -C hiredis all
+ 
+ clean:
+ 	$(MAKE) -C redis clean
+-	$(MAKE) -C hiredis all
+ 
+ 
+-.PHONY: all clean
+\ No newline at end of file
++.PHONY: all clean
