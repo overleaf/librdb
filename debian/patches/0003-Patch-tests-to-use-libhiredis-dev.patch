@@ -1,0 +1,56 @@
+From: Christopher Hoskin <mans0954@users.noreply.github.com>
+Date: Wed, 25 Jun 2025 07:51:46 +0100
+Subject: Patch tests to use libhiredis-dev
+
+---
+ test/Makefile      | 4 ++--
+ test/test_common.c | 2 +-
+ test/test_common.h | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/test/Makefile b/test/Makefile
+index 693d9f8..e8f7044 100644
+--- a/test/Makefile
++++ b/test/Makefile
+@@ -3,7 +3,7 @@ default: all
+ LIB_NAME              = rdb
+ LIB_DIR               = ../lib
+ LIB_NAME_EXT          = $(LIB_NAME)-ext
+-LIBHIREDIS=../deps/hiredis/libhiredis.a
++LIBHIREDIS=libhiredis.a
+ 
+ # Artifacts:
+ TARGET_TEST           = test_lib
+@@ -48,4 +48,4 @@ $(TARGET_TEST_STATIC): $(OBJECTS)
+ clean:
+ 	@rm -rvf $(TARGET_TEST) $(TARGET_TEST_STATIC) ./tmp/*.* ./*.o ./*.d ./log/*.log;
+ 
+-.PHONY: all clean
+\ No newline at end of file
++.PHONY: all clean
+diff --git a/test/test_common.c b/test/test_common.c
+index 21443f5..83b3b0b 100644
+--- a/test/test_common.c
++++ b/test/test_common.c
+@@ -13,7 +13,7 @@
+ #include <netinet/in.h>
+ #include <sys/wait.h>
+ #include <dirent.h>
+-#include "../deps/hiredis/hiredis.h"
++#include <hiredis/hiredis.h>
+ #include "test_common.h"
+ 
+ /* Live Redis server for some of the tests (Optional) */
+diff --git a/test/test_common.h b/test/test_common.h
+index 289a0a5..4ac2510 100644
+--- a/test/test_common.h
++++ b/test/test_common.h
+@@ -5,7 +5,7 @@
+ #include <stdint.h>
+ #include <cmocka.h>
+ 
+-#include "../deps/hiredis/hiredis.h"
++#include <hiredis/hiredis.h>
+ #include "../api/librdb-api.h"  /* RDB library header */
+ #include "../api/librdb-ext-api.h" /* RDB library extension header */
+ 

@@ -1,2 +1,3 @@
 0001-Remove-hiredis-deps-from-Makefile.patch
 0002-Fix-various-build-issues-64.patch
+0003-Patch-tests-to-use-libhiredis-dev.patch

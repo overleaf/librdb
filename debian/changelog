@@ -6,5 +6,6 @@ librdb (1.0.0-1) UNRELEASED; urgency=low
   * Upstream patch for build issues
   * Add libcmocka-dev as a build dep
   * Add libhiredis-dev as a build dep
+  * Patch tests to use libhiredis-dev
 
  -- Christopher Hoskin <mans0954@debian.org>  Wed, 25 Jun 2025 07:25:18 +0100
