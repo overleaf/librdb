@@ -3,4 +3,5 @@ steps:
   script: |
     #!/usr/bin/env bash
     origtargz
+    export HOME=/root 
     sbuild --no-clean
