@@ -4,11 +4,9 @@ steps:
   - 'DEBIAN_FRONTEND=noninteractive'
   script: |
     #!/usr/bin/env bash
-    pwd
-    ls -l
-    mkdir librdb
-    mv !(librdb) librdb
-    cd librdb
+    mkdir /tmp/librdb
+    cp -r  /workspace/. /tmp/librdb
+    cd /tmp/librdb
     origtargz
     sudo apt-get update
     mk-build-deps -i --tool="apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes" --root-cmd=sudo --remove
