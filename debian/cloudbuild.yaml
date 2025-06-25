@@ -1,8 +1,6 @@
 steps:
 - name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:csh-testing'
-  args:
-  - origtargz
-- name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:csh-testing'
-  args:
-  - sbuild
-  - --no-clean
+  script: |
+    #!/usr/bin/env bash
+    origtargz
+    sbuild --no-clean
