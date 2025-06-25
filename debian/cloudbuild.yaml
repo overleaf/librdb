@@ -2,11 +2,13 @@ steps:
 - name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:csh-testing'
   env: 
   - 'DEBIAN_FRONTEND=noninteractive'
+  dir: src
   script: |
     #!/usr/bin/env bash
     origtargz
     #export HOME=/root 
     #sbuild --no-clean
     sudo apt-get update
+    export TMPDIR=/tmp
     mk-build-deps -i --tool="apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes" --root-cmd=sudo --remove
     debuild
