@@ -4,6 +4,8 @@ steps:
   - 'DEBIAN_FRONTEND=noninteractive'
   script: |
     #!/usr/bin/env bash
+    pwd
+    ls -l
     mkdir librdb
     mv !(librdb) librdb
     cd librdb
