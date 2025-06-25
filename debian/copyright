@@ -1,0 +1,375 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: librdb
+Upstream-Contact: <preferred name and address to reach the upstream project>
+Source: <url://example.com>
+#
+# Please double check copyright with the licensecheck(1) command.
+
+Files:     .github/workflows/ci.yml
+           .gitignore
+           .gitmodules
+           Makefile
+           README.md
+           api/librdb-api.h
+           api/librdb-ext-api.h
+           bin/.gitkeep
+           deps/Makefile
+           deps/README.md
+           deps/redis/Makefile
+           deps/redis/crc64.h
+           deps/redis/crcspeed.c
+           deps/redis/stream.h
+           deps/redis/t_stream.c
+           deps/redis/util.h
+           deps/redis/version.h
+           examples/Makefile
+           examples/dumps/multiple_lists_strings.rdb
+           examples/example1.c
+           lib/.gitkeep
+           librdb-ext.pc.in
+           librdb.pc.in
+           runtests
+           src/cli/Makefile
+           src/cli/rdb-cli.c
+           src/ext/Makefile
+           src/ext/common.c
+           src/ext/common.h
+           src/ext/handlersFilter.c
+           src/ext/handlersToJson.c
+           src/ext/handlersToPrint.c
+           src/ext/handlersToResp.c
+           src/ext/readerFile.c
+           src/ext/readerFileDesc.c
+           src/ext/readerResp.c
+           src/ext/readerResp.h
+           src/ext/respToFileWriter.c
+           src/ext/respToRedisLoader.c
+           src/lib/Makefile
+           src/lib/bulkAlloc.c
+           src/lib/bulkAlloc.h
+           src/lib/defines.h
+           src/lib/parser.c
+           src/lib/parser.h
+           src/lib/parserRaw.c
+           src/lib/version.c
+           src/lib/version.h
+           test/Makefile
+           test/dumps/100_lists.rdb
+           test/dumps/cluster_slot_info.json
+           test/dumps/cluster_slot_info.rdb
+           test/dumps/empty.rdb
+           test/dumps/function.rdb
+           test/dumps/function2.json
+           test/dumps/function2.rdb
+           test/dumps/future_v19.rdb
+           test/dumps/hash_data.json
+           test/dumps/hash_ex_v12_data.json
+           test/dumps/hash_lp_ex_v12_data.json
+           test/dumps/hash_lp_v11.rdb
+           test/dumps/hash_lp_v11_data.json
+           test/dumps/hash_lp_v11_raw.json
+           test/dumps/hash_lp_v11_struct.json
+           test/dumps/hash_lp_with_hexpire_v12.rdb
+           test/dumps/hash_raw.json
+           test/dumps/hash_struct.json
+           test/dumps/hash_v3.rdb
+           test/dumps/hash_with_expire_v12.rdb
+           test/dumps/hash_zl_v6.rdb
+           test/dumps/hash_zl_v6_data.json
+           test/dumps/hash_zl_v6_raw.json
+           test/dumps/hash_zl_v6_struct.json
+           test/dumps/hash_zm_v2.rdb
+           test/dumps/hash_zm_v2_data.json
+           test/dumps/hash_zm_v2_raw.json
+           test/dumps/hash_zm_v2_struct.json
+           test/dumps/invalid_chksum_v8.rdb
+           test/dumps/mem_policy_lfu.json
+           test/dumps/mem_policy_lfu.rdb
+           test/dumps/mem_policy_lru.json
+           test/dumps/mem_policy_lru.rdb
+           test/dumps/misc_with_stream.rdb
+           test/dumps/module.rdb
+           test/dumps/module_aux.rdb
+           test/dumps/module_aux_data.json
+           test/dumps/module_aux_empty.rdb
+           test/dumps/module_data.json
+           test/dumps/module_raw.json
+           test/dumps/multiple_dbs.rdb
+           test/dumps/multiple_dbs_data.json
+           test/dumps/multiple_lists_strings.rdb
+           test/dumps/multiple_lists_strings_2filters.json
+           test/dumps/multiple_lists_strings_data.json
+           test/dumps/multiple_lists_strings_no_aux.json
+           test/dumps/multiple_lists_strings_raw.json
+           test/dumps/multiple_lists_strings_struct.json
+           test/dumps/multiple_lists_strings_subset_list.json
+           test/dumps/multiple_lists_strings_subset_str.json
+           test/dumps/plain_hash_data.json
+           test/dumps/plain_hash_struct.json
+           test/dumps/plain_list_v6.rdb
+           test/dumps/plain_list_v6_data.json
+           test/dumps/plain_list_v6_raw.json
+           test/dumps/plain_set_v6.rdb
+           test/dumps/plain_set_v6_data.json
+           test/dumps/plain_set_v6_raw.json
+           test/dumps/plain_set_v6_struct.json
+           test/dumps/plain_zset_2_v11.rdb
+           test/dumps/plain_zset_2_v11_data.json
+           test/dumps/plain_zset_2_v11_raw.json
+           test/dumps/plain_zset_2_v11_struct.json
+           test/dumps/plain_zset_v6.rdb
+           test/dumps/plain_zset_v6_data.json
+           test/dumps/plain_zset_v6_raw.json
+           test/dumps/plain_zset_v6_struct.json
+           test/dumps/quicklist.rdb
+           test/dumps/quicklist2_v11.rdb
+           test/dumps/quicklist_data.json
+           test/dumps/quicklist_raw.json
+           test/dumps/quicklist_struct.json
+           test/dumps/set_expired.json
+           test/dumps/set_expired_v11.rdb
+           test/dumps/set_is_v11.rdb
+           test/dumps/set_is_v11_data.json
+           test/dumps/set_is_v11_raw.json
+           test/dumps/set_is_v11_struct.json
+           test/dumps/set_lp_v11.rdb
+           test/dumps/set_lp_v11_data.json
+           test/dumps/set_lp_v11_raw.json
+           test/dumps/set_lp_v11_struct.json
+           test/dumps/set_not_expired.json
+           test/dumps/set_not_expired_v11.rdb
+           test/dumps/single_key.rdb
+           test/dumps/single_key_data.json
+           test/dumps/single_key_raw.json
+           test/dumps/single_key_struct.json
+           test/dumps/single_list_data.json
+           test/dumps/single_list_raw.json
+           test/dumps/single_list_struct.json
+           test/dumps/stream_data.json
+           test/dumps/stream_data_with_meta.json
+           test/dumps/stream_v11.rdb
+           test/dumps/stream_v11_target_ver_6.2.resp
+           test/dumps/stream_v11_target_ver_7.2.resp
+           test/dumps/string_int_encoded.json
+           test/dumps/string_int_encoded.rdb
+           test/dumps/string_lzf.rdb
+           test/dumps/validate_all_json_files.sh
+           test/dumps/ziplist_data.json
+           test/dumps/ziplist_raw.json
+           test/dumps/ziplist_struct.json
+           test/dumps/ziplist_v3.rdb
+           test/dumps/zset_lp_v11.rdb
+           test/dumps/zset_lp_v11_data.json
+           test/dumps/zset_lp_v11_raw.json
+           test/dumps/zset_lp_v11_struct.json
+           test/dumps/zset_zl_v6.rdb
+           test/dumps/zset_zl_v6_data.json
+           test/dumps/zset_zl_v6_raw.json
+           test/dumps/zset_zl_v6_struct.json
+           test/json_signature_generator.py
+           test/log/.gitkeep
+           test/test_bulk_ops.c
+           test/test_common.c
+           test/test_common.h
+           test/test_main.c
+           test/test_malloc.c
+           test/test_pause.c
+           test/test_rdb_cli.c
+           test/test_rdb_to_json.c
+           test/test_rdb_to_redis.c
+           test/test_rdb_to_resp.c
+           test/test_resp_reader.c
+           test/tmp/.gitkeep
+Copyright: __NO_COPYRIGHT_NOR_LICENSE__
+License:   __NO_COPYRIGHT_NOR_LICENSE__
+
+Files:     deps/redis/config.h
+           deps/redis/crc64.c
+           deps/redis/crcspeed.h
+           deps/redis/endianconv.c
+           deps/redis/endianconv.h
+           deps/redis/intset.c
+           deps/redis/intset.h
+           deps/redis/listpack.c
+           deps/redis/listpack.h
+           deps/redis/rax.c
+           deps/redis/rax.h
+           deps/redis/t_zset.c
+           deps/redis/t_zset.h
+           deps/redis/ziplist.c
+           deps/redis/ziplist.h
+           deps/redis/zipmap.c
+           deps/redis/zipmap.h
+Copyright: 2009-2012 Pieter Noordhuis <pcnoordhuis at gmail dot com>
+           2009-2019 Salvatore Sanfilippo <antirez at gmail dot com>
+           2014 Matt Stancliff <matt@genges.com>
+           2020 Amazon Web Services
+           2020 Redis Labs, Inc
+License:   BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ * Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ * Neither the name of Redis nor the names of its contributors may be used
+ to endorse or promote products derived from this software without
+ specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ .
+ On Debian systems, the complete text of the BSD 3-clause "New" or "Revised"
+ License can be found in `/usr/share/common-licenses/BSD'.
+
+Files:     deps/redis/lzf.h
+           deps/redis/lzfP.h
+           deps/redis/lzf_c.c
+           deps/redis/lzf_d.c
+Copyright: 2000-2010 Marc Alexander Lehmann <schmorp@schmorp.de>
+License:   BSD-2-Clause
+ Redistribution and use in source and binary forms, with or without modifica-
+ tion, are permitted provided that the following conditions are met:
+ .
+ 1.  Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+ .
+ 2.  Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MER-
+ CHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+ EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPE-
+ CIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTH-
+ ERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ OF THE POSSIBILITY OF SUCH DAMAGE.
+ .
+ Alternatively, the contents of this file may be used under the terms of
+ the GNU General Public License ("GPL") version 2 or any later version,
+ in which case the provisions of the GPL are applicable instead of
+ the above. If you wish to allow the use of your version of this file
+ only under the terms of the GPL and not to allow others to use your
+ version of this file under the BSD license, indicate your decision
+ by deleting the provisions above and replace them with the notice
+ and other provisions required by the GPL. If you do not delete the
+ provisions above, a recipient may use your version of this file under
+ either the BSD or the GPL.
+
+Files:     deps/redis/fpconv_dtoa.c
+           deps/redis/fpconv_dtoa.h
+           deps/redis/fpconv_powers.h
+Copyright: 2009 Florian Loitsch < florian.loitsch at inria dot fr >
+           2013-2019 night-shift <as.smljk at gmail dot com>
+           2021 Redis Labs
+License:   __UNKNOWN__
+ Boost Software License - Version 1.0 - August 17th, 2003
+ .
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+Files:     deps/redis/listpack_malloc.h
+           deps/redis/rax_malloc.h
+Copyright: 2017 Salvatore Sanfilippo <antirez at gmail dot com>
+License:   BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ * Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+ * Neither the name of Redis nor the names of its contributors may be used
+ to endorse or promote products derived from this software without
+ specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ .
+ Allocator selection.
+ .
+ This file is used in order to change the Rax allocator at compile time.
+ Just define the following defines to what you want to use. Also add
+ the include of your alternate allocator if needed (not needed in order
+ to use the default libc allocator).
+ .
+ On Debian systems, the complete text of the BSD 3-clause "New" or "Revised"
+ License can be found in `/usr/share/common-licenses/BSD'.
+
+Files:     deps/redis/util.c
+Copyright: 2011 Pieter Noordhuis
+           2011 Salvatore Sanfilippo
+License:   __UNKNOWN__
+ The function is released under the BSD 3-clause license.
+
+#----------------------------------------------------------------------------
+# Files marked as NO_LICENSE_TEXT_FOUND may be covered by the following
+# license/copyright files.
+
+#----------------------------------------------------------------------------
+# License file: LICENSE
+ MIT License
+ .
+ Copyright (c) 2023, Redis Labs
+ .
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
