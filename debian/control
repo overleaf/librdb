@@ -2,7 +2,8 @@ Source: librdb
 Section: unknown
 Priority: optional
 Maintainer: Christopher Hoskin <mans0954@debian.org>
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13),
+ libcmocka-dev
 Standards-Version: 4.6.1
 Homepage: <insert the upstream URL, if relevant>
 Rules-Requires-Root: no
