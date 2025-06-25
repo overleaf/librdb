@@ -2,5 +2,6 @@ librdb (1.0.0-1) UNRELEASED; urgency=low
 
   * Initial release. Closes: #nnnn
     <nnnn is the bug number of your ITP>
+  * Patch Makefile to ignore deps
 
  -- Christopher Hoskin <mans0954@debian.org>  Wed, 25 Jun 2025 07:25:18 +0100

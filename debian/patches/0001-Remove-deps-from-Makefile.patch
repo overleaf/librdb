@@ -1,0 +1,38 @@
+From: Christopher Hoskin <mans0954@users.noreply.github.com>
+Date: Wed, 25 Jun 2025 07:27:48 +0100
+Subject: Remove deps from Makefile
+
+---
+ Makefile | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 8585174..b6323c4 100644
+--- a/Makefile
++++ b/Makefile
+@@ -22,15 +22,13 @@ export LIBRDB_VERSION
+ 
+ # ------------------------- ALL --------------------------------------
+ 
+-all: ./deps/hiredis/hiredis.h
+-	$(MAKE) -C deps  all
++all:
+ 	$(MAKE) -C src/lib  all
+ 	$(MAKE) -C src/ext  all
+ 	$(MAKE) -C src/cli  all
+ 	$(MAKE) -C examples  all
+ 
+ clean:
+-	$(MAKE) -C deps  clean
+ 	$(MAKE) -C src/lib  clean
+ 	$(MAKE) -C src/ext  clean
+ 	$(MAKE) -C src/cli  clean
+@@ -44,8 +42,6 @@ distclean: clean
+ example: all
+ 	cd examples && export LD_LIBRARY_PATH=../lib && ./example1
+ 
+-./deps/hiredis/hiredis.h:
+-	git submodule update --init deps/hiredis
+ 
+ # ------------------------- DEBUG -------------------------------------
+ 
