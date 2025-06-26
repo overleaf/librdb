@@ -1,5 +1,5 @@
 steps:
-- name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:csh-testing'
+- name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:latest'
   env: 
   - 'DEBIAN_FRONTEND=noninteractive'
   script: |
@@ -11,3 +11,15 @@ steps:
     sudo apt-get update
     mk-build-deps -i --tool="apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes" --root-cmd=sudo --remove
     debuild
+    cp ../librdb_1.0.0-*_amd64.deb /workspace/
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+  args:
+  - gcloud
+  - artifacts 
+  - apt 
+  - upload
+  - ol-deb
+  - --location
+  - us-east1
+  - --source=
+  - /workspace/librdb_1.0.0-*_amd64.deb
