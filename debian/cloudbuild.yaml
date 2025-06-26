@@ -23,7 +23,7 @@ steps:
   script: |
     #!/usr/bin/env bash
     # Use a script for globing
-    find /deb/ -name '*.deb' | xargs -I {} gcloud artifacts apt upload ol-deb --location=us-east1 --source='{}'
+    find /deb/ -name '*.deb' | xargs -I {} gcloud artifacts apt upload ol-debian --location=us-east1 --source='{}'
 options:
   volumes:
   - name: 'deb'
