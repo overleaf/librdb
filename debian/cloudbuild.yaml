@@ -1,4 +1,9 @@
 steps:
+- name: gcr.io/cloud-builders/docker
+  args:
+  - a+w
+  - /deb
+  entrypoint: chmod
 - name: 'us-east1-docker.pkg.dev/overleaf-ops/ol-docker/deb-builder:latest'
   env: 
   - 'DEBIAN_FRONTEND=noninteractive'
@@ -13,20 +18,13 @@ steps:
     debuild
     ls -ld /deb
     cp ../librdb_1.0.0-*_amd64.deb /deb/
-  volumes:
-  - name: 'deb'
-    path: '/deb'
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   args:
-  - gcloud
-  - artifacts 
-  - apt 
-  - upload
-  - ol-deb
-  - --location
-  - us-east1
-  - --source=
-  - /deb/librdb_1.0.0-*_amd64.deb
+  script: |
+    #!/usr/bin/env bash
+    # Use a script for globing
+    find /deb/ -name '*.deb' | xargs -I {} gcloud artifacts apt upload ol-deb --location=us-east1 --source='{}'
+options:
   volumes:
   - name: 'deb'
     path: '/deb'
