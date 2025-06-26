@@ -11,7 +11,11 @@ steps:
     sudo apt-get update
     mk-build-deps -i --tool="apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes" --root-cmd=sudo --remove
     debuild
-    cp ../librdb_1.0.0-*_amd64.deb /workspace/
+    ls -ld /deb
+    cp ../librdb_1.0.0-*_amd64.deb /deb/
+  volumes:
+  - name: 'deb'
+    path: '/deb'
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   args:
   - gcloud
@@ -22,4 +26,7 @@ steps:
   - --location
   - us-east1
   - --source=
-  - /workspace/librdb_1.0.0-*_amd64.deb
+  - /deb/librdb_1.0.0-*_amd64.deb
+  volumes:
+  - name: 'deb'
+    path: '/deb'
