@@ -1,4 +1,4 @@
-librdb (1.0.0-1) UNRELEASED; urgency=low
+librdb (1.0.0-1) noble; urgency=low
 
   * Initial release. Closes: #nnnn
     <nnnn is the bug number of your ITP>
@@ -10,4 +10,4 @@ librdb (1.0.0-1) UNRELEASED; urgency=low
   * Set prefix
   * Setup watch
 
- -- Christopher Hoskin <mans0954@debian.org>  Wed, 25 Jun 2025 07:25:18 +0100
+ -- Christopher Hoskin <mans0954@debian.org>  Fri, 27 Jun 2025 10:50:25 +0100
