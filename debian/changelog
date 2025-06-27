@@ -1,3 +1,9 @@
+librdb (1.0.0-1ubuntu1) noble; urgency=medium
+
+  * Try a point release 
+
+ -- Christopher Hoskin <mans0954@debian.org>  Fri, 27 Jun 2025 10:55:45 +0100
+
 librdb (1.0.0-1) noble; urgency=low
 
   * Initial release. Closes: #nnnn
